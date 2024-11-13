@@ -13,11 +13,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-//import { toast } from "@/components/ui/use-toast";
+import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
-//import { signUpWithEmailAndPassword } from "@/actions";
+import { signUpWithEmailAndPassword } from "@/actions";
 import { useTransition } from "react";
 
 const FormSchema = z
@@ -47,7 +47,7 @@ export default function RegisterForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log('data',data)
-   /* startTransition(async () => {
+    startTransition(async () => {
       const result = await signUpWithEmailAndPassword(data);
       const { error } = result;
 
@@ -73,7 +73,7 @@ export default function RegisterForm() {
           ),
         });
       }
-    });*/
+    });
   }
 
   return (
