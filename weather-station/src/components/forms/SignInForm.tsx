@@ -15,7 +15,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
-//import { signInWithEmailAndPassword } from "@/actions";
+import { signInWithEmailAndPassword } from "@/actions";
 import { useTransition } from "react";
 
 const FormSchema = z.object({
@@ -37,8 +37,7 @@ export default function SignInForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log('data',data)
-    /*startTransition(async () => {
+    startTransition(async () => {
       const result = await signInWithEmailAndPassword(data);
       const { error } = result;
 
@@ -64,7 +63,7 @@ export default function SignInForm() {
           ),
         });
       }
-    });*/
+    });
   }
 
   return (
