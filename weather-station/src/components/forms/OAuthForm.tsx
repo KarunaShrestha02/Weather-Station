@@ -4,26 +4,25 @@ import React, { useTransition } from "react";
 import { Icons } from "@/components/ui/icons";
 import { toast } from "../ui/use-toast";
 
-//import createSupabaseClientClient from "@/lib/supabase/client";
+import {createClient} from "@/lib/supabase/client";
 
-//export async function signInWithOAuthGitHub() {
- /*const supabase = await createSupabaseClientClient();
+export async function signInWithOAuthGitHub() {
+  const supabase = await createClient();
   const result = await supabase.auth.signInWithOAuth({
     provider: "github",
     options: {
       redirectTo: `${location.origin}/auth/callback`,
     },
   });
-  return result;*/
-//}
+  return result;
+}
 
 export default function OAuthForm() {
 
 
 
   async function loginWithGithub() {
-    console.log('loginWithGithub')
-     /* const result = await signInWithOAuthGitHub();
+      const result = await signInWithOAuthGitHub();
       const { error } = result;
 
       if (error?.message) {
@@ -48,7 +47,6 @@ export default function OAuthForm() {
           ),
         });
       }
-        */
   }
 
   return (
