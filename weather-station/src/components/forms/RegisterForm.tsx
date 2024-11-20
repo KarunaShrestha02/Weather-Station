@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Icons } from "@/components/ui/icons";
 import { signUpWithEmailAndPassword } from "@/actions";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 
 const FormSchema = z
   .object({
@@ -36,6 +36,7 @@ const FormSchema = z
   });
 export default function RegisterForm() {
   const [isPending, startTransition] = useTransition();
+  
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -63,7 +64,7 @@ export default function RegisterForm() {
           ),
         });
       } else {
-        console.log("succes");
+        console.log("success");
         toast({
           title: "You submitted the following values:",
           description: (
@@ -109,6 +110,7 @@ export default function RegisterForm() {
                   {...field}
                   type="password"
                   onChange={field.onChange}
+                  required
                 />
               </FormControl>
 
@@ -130,6 +132,7 @@ export default function RegisterForm() {
                   {...field}
                   type="password"
                   onChange={field.onChange}
+                  required
                 />
               </FormControl>
 
