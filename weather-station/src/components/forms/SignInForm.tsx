@@ -53,7 +53,7 @@ export default function SignInForm() {
           ),
         });
       } else {
-        console.log("succes");
+        console.log("success");
         toast({
           title: "You submitted the following values:",
           description: (
