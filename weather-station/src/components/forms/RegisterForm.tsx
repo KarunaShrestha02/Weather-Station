@@ -16,9 +16,9 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/ui/icons";
+import { Icons } from "@/components/icons";
 import { signUpWithEmailAndPassword } from "@/actions";
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 
 const FormSchema = z
   .object({
@@ -36,7 +36,6 @@ const FormSchema = z
   });
 export default function RegisterForm() {
   const [isPending, startTransition] = useTransition();
-  
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -47,7 +46,6 @@ export default function RegisterForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log('data',data)
     startTransition(async () => {
       const result = await signUpWithEmailAndPassword(data);
       const { error } = result;
@@ -64,7 +62,7 @@ export default function RegisterForm() {
           ),
         });
       } else {
-        console.log("success");
+        console.log("succes");
         toast({
           title: "You submitted the following values:",
           description: (
@@ -110,7 +108,6 @@ export default function RegisterForm() {
                   {...field}
                   type="password"
                   onChange={field.onChange}
-                  required
                 />
               </FormControl>
 
@@ -132,7 +129,6 @@ export default function RegisterForm() {
                   {...field}
                   type="password"
                   onChange={field.onChange}
-                  required
                 />
               </FormControl>
 
