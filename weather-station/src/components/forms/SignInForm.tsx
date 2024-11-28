@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Icons } from "@/components/ui/icons";
+import { Icons } from "@/components/icons";
 import { signInWithEmailAndPassword } from "@/actions";
 import { useTransition } from "react";
 
@@ -53,7 +53,7 @@ export default function SignInForm() {
           ),
         });
       } else {
-        console.log("success");
+        console.log("succes");
         toast({
           title: "You submitted the following values:",
           description: (
