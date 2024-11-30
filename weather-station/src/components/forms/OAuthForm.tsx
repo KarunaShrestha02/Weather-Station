@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React, { useTransition } from "react";
-import { Icons } from "@/components/ui/icons";
+import { Icons } from "@/components/icons";
 import { toast } from "../ui/use-toast";
 
 import {createClient} from "@/lib/supabase/client";
