@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import {createClient} from "@/lib/supabase/server";
 import { revalidatePath,unstable_noStore as noStore } from "next/cache";
 
-
 type ResponseData = {
   token: string;
   refreshToken: string;
@@ -52,7 +51,6 @@ export async function createSetting(data: {
   entityId: string;
 }) {
   const supabase = await createClient();
-  
 
   const result = await supabase
     .from("weather-station")
@@ -80,14 +78,11 @@ export async function signUpWithEmailAndPassword(data: {
   confirm: string;
 }) {
   const supabase = await createClient();
-
   const result = await supabase.auth.signUp({
     email: data.email,
     password: data.password,
   });
-
-  // Ensure serializability before returning the result
-  return JSON.parse(JSON.stringify(result));
+  return result;
 }
 
 export async function signInWithEmailAndPassword(data: {
@@ -95,17 +90,12 @@ export async function signInWithEmailAndPassword(data: {
   password: string;
 }) {
   const supabase = await createClient();
-
   const result = await supabase.auth.signInWithPassword({
     email: data.email,
     password: data.password,
   });
-
-  // Ensure serializability before returning the result
-  return JSON.parse(JSON.stringify(result));
+  return result;
 }
-
-
 
 export async function signOut(){
   const supabase = await createClient();
